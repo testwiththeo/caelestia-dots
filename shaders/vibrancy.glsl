@@ -1,7 +1,8 @@
 #version 320 es
 
 // Tuned for: Chimei Innolux 15.6" FHD Matte
-// 62.5% sRGB, 250 nits - boost sat + contrast
+// 62.5% sRGB, 250 nits -- boost sat + contrast
+// Lower SATURATION to 1.20 if colors feel too vivid
 
 precision mediump float;
 in vec2 v_texcoord;
