@@ -1,0 +1,159 @@
+{
+  "general": {
+    "logo": "caelestia"
+  },
+  "appearance": {
+    "rounding": {
+      "scale": 0.8
+    },
+    "spacing": {
+      "scale": 1
+    },
+    "padding": {
+      "scale": 0.7
+    },
+    "font": {
+      "family": {
+        "sans": "SF Pro",
+        "mono": "GeistMono Nerd Font Mono",
+        "material": "Material Symbols Rounded",
+        "clock": "SF Pro Display"
+      },
+      "size": {
+        "scale": 0.85
+      }
+    },
+    "transparency": {
+      "enabled": true,
+      "base": 0.72,
+      "layers": 0.85
+    },
+    "anim": {
+      "durations": {
+        "scale": 0.9
+      }
+    }
+  },
+  "bar": {
+    "persistent": true,
+    "showOnHover": false,
+    "dragThreshold": 20,
+    "scrollActions": {
+      "workspaces": true,
+      "volume": true,
+      "brightness": true
+    },
+    "popouts": {
+      "activeWindow": true,
+      "tray": true,
+      "statusIcons": true
+    },
+    "workspaces": {
+      "shown": 3,
+      "activeIndicator": true,
+      "occupiedBg": true,
+      "showWindows": true,
+      "showWindowsOnSpecialWorkspaces": false,
+      "activeTrail": false,
+      "perMonitorWorkspaces": true,
+      "label": "ε",
+      "occupiedLabel": "λ",
+      "activeLabel": "Ω",
+      "capitalisation": "preserve",
+      "specialWorkspaceIcons": []
+    },
+    "activeWindow": {
+      "inverted": false,
+      "maxLines": 1,
+      "showIcon": false,
+      "fontScale": 0.7,
+      "truncate": "end"
+    },
+    "tray": {
+      "background": false,
+      "recolour": false,
+      "compact": true,
+      "iconSubs": []
+    },
+    "status": {
+      "showAudio": true,
+      "showMicrophone": false,
+      "showKbLayout": false,
+      "showNetwork": true,
+      "showWifi": true,
+      "showBluetooth": true,
+      "showBattery": true,
+      "showLockStatus": true
+    },
+    "clock": {
+      "showIcon": true
+    },
+    "sizes": {
+      "innerWidth": 22,
+      "windowPreviewSize": 400,
+      "trayMenuWidth": 300,
+      "batteryWidth": 240,
+      "networkWidth": 300
+    },
+    "entries": [
+      {
+        "id": "workspaces",
+        "enabled": true
+      },
+      {
+        "id": "spacer",
+        "enabled": true
+      },
+      {
+        "id": "activeWindow",
+        "enabled": true
+      },
+      {
+        "id": "spacer",
+        "enabled": true
+      },
+      {
+        "id": "tray",
+        "enabled": true
+      },
+      {
+        "id": "clock",
+        "enabled": true
+      },
+      {
+        "id": "statusIcons",
+        "enabled": true
+      },
+      {
+        "id": "power",
+        "enabled": true
+      }
+    ],
+    "excludedScreens": []
+  },
+  "dashboard": {
+    "enabled": true,
+    "showOnHover": true,
+    "dragThreshold": 50
+  },
+  "background": {
+    "enabled": false,
+    "desktopClock": {
+      "enabled": false
+    },
+    "visualiser": {
+      "enabled": false,
+      "autoHide": true,
+      "blur": true
+    }
+  },
+  "lock": {
+    "sizes": {
+      "centerWidth": 500,
+      "heightMult": 0.6,
+      "ratio": 1.777
+    },
+    "blur": true,
+    "opacity": 0.6
+  }
+}
