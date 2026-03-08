@@ -1,0 +1,5 @@
+{
+    "wallpaper": {
+        "postHook": "pkill swaybg; swaybg -i $WALLPAPER_PATH -m fill &"
+    }
+}
