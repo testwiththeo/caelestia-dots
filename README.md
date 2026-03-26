@@ -9,7 +9,11 @@
  ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝
 ```
 
-**hyprland · caelestia · catppuccin mocha**
+# Caelestia Dotfiles Override
+
+**Hyprland + Caelestia on CachyOS**
+
+A compact, glassy, productivity-focused rice with practical daily ergonomics.
 
 ![Hyprland](https://img.shields.io/badge/Hyprland-0.54-blue?style=flat-square&color=cba6f7)
 ![OS](https://img.shields.io/badge/CachyOS-Arch-blue?style=flat-square&color=89b4fa)
@@ -20,104 +24,173 @@
 
 ---
 
-<!-- Replace with actual screenshot -->
-> 📸 *screenshot goes here*
+## About
+
+This repository is my personal override layer for Caelestia.
+It focuses on three things:
+
+- visual polish without sacrificing readability
+- fast keyboard-driven workflow for real daily use
+- eye comfort for long sessions on a matte FHD panel
+
+This repo is intentionally scoped to user overrides and helper scripts.
+The upstream Caelestia base remains external at `~/.local/share/caelestia/`.
 
 ---
 
-## system
+## Design Goals
 
-| | |
+- Persistent compact sidebar (no auto-hide)
+- iOS-inspired glass style with clean spacing
+- Fast glanceable workspace state using glyph markers
+- Profile-based color comfort for coding, night, reading, and design
+- Stable behavior on NVIDIA hybrid laptop setup
+
+Current workspace markers:
+
+- empty: `◌`
+- occupied: `◎`
+- active: `⬤`
+
+---
+
+## Platform
+
+| Item | Value |
 |---|---|
-| **OS** | CachyOS (Arch) |
-| **WM** | Hyprland 0.54 |
-| **Shell** | fish + oh-my-posh (M365Princess) |
-| **Bar / Shell** | Caelestia (quickshell) |
-| **Theme** | Catppuccin Mocha |
-| **Icons** | Papirus-Dark |
-| **Cursor** | Bibata-Modern-Ice |
-| **Font (UI)** | SF Pro |
-| **Font (Mono)** | GeistMono Nerd Font |
-| **Terminal** | Foot |
-| **Launcher** | Rofi |
-| **GPU** | NVIDIA RTX 3050 + Intel UHD (hybrid) |
-| **Display** | Chimei Innolux 15.6" FHD 144Hz (matte) |
+| OS | CachyOS (Arch) |
+| WM | Hyprland 0.54 |
+| Shell | fish + oh-my-posh |
+| Bar / Shell UI | Caelestia (quickshell) |
+| Theme | Catppuccin Mocha |
+| Icons | Papirus-Dark |
+| Cursor | Bibata-Modern-Ice |
+| UI Font | SF Pro |
+| Mono Font | GeistMono Nerd Font |
+| Terminal | Foot |
+| Launcher | Rofi |
+| GPU | NVIDIA RTX 3050 + Intel UHD |
+| Display | 15.6" FHD 144Hz matte panel |
 
 ---
 
-## highlights
+## Feature Summary
 
-- **Hybrid tiling** — dwindle layout with pseudotile + float rules for common apps
-- **Workspace labels** — `ε` empty · `λ` occupied · `Ω` active
-- **Hyprexpo** — Alt+Tab mission control overview (managed via hyprpm)
-- **Screen shader** — GLSL vibrancy boost tuned for 62.5% sRGB matte panel
-- **Gammastep presets** — `gsset focus` / `night-owl` / `dawn` / `neutral`
-- **Transparent bar** — 72% base opacity, compact 22px inner width
-- **NVIDIA fixes** — `AQ_DRM_DEVICES`, software cursors, VRR disabled
+- Hybrid tiling profile with practical floating exceptions
+- Compact sidebar tuned for low visual noise
+- Dashboard, lock, and bar overrides from `shell.json`
+- Gamma profile switcher via `gsset`
+- Automatic fallback to Hyprland shaders when Wayland gamma is unsupported
+- Dedicated per-mode shader variants (`focus`, `night`, `morning`, `reading`, `neutral`)
 
 ---
 
-## structure
+## Repository Layout
 
-```
+```text
 ~/.config/caelestia/
-├── hypr-user.conf          # Hyprland user additions (cursor, GPU, keybinds)
-├── hypr-vars.conf          # Gesture variable overrides
-├── shell.json              # Caelestia bar / lock / dashboard config
-├── cli.json                # Wallpaper post-hook
-└── hypr/
-    ├── hybrid-layout.conf  # Tiling layout + float rules
-    ├── animations.conf     # Animation overrides
-    └── notifications.conf  # Notification config
-
-~/.config/hypr/
+├── shell.json                      # Caelestia UI overrides
+├── hypr-user.conf                  # User Hyprland additions
+├── hypr-vars.conf                  # Gesture/variable overrides
+├── cli.json                        # CLI-side hooks
+├── hypr/
+│   ├── hybrid-layout.conf
+│   ├── animations.conf
+│   └── notifications.conf
+├── gammastep/
+│   ├── config.ini                  # Base profile
+│   └── presets/
+│       ├── focus.ini
+│       ├── night.ini
+│       ├── morning.ini
+│       ├── reading.ini
+│       ├── neutral.ini
+│       ├── dawn.ini                # alias compatibility -> morning
+│       └── night-owl.ini           # alias compatibility -> night
 ├── shaders/
-│   └── vibrancy.glsl       # Screen saturation/contrast shader
+│   ├── vibrancy.glsl               # default shader
+│   ├── vibrancy-focus.glsl
+│   ├── vibrancy-night.glsl
+│   ├── vibrancy-morning.glsl
+│   ├── vibrancy-reading.glsl
+│   └── vibrancy-neutral.glsl
 └── scripts/
-    └── gammastep-preset.sh # Night light preset switcher
-
-~/.config/gammastep/
-├── config.ini              # Main config (5200K/3600K, tuned for matte panel)
-└── presets/
-    ├── focus.ini           # 5200K/3800K — daytime coding
-    ├── night-owl.ini       # 4500K/2700K — late night
-    ├── dawn.ini            # 5000K/3500K — morning
-    └── neutral.ini         # 6500K/5000K — color-accurate work
+    └── gammastep-preset.sh         # preset manager + fallback logic
 ```
 
 ---
 
-## keybinds
+## Daily Commands
+
+```fish
+# restart shell UI
+caer
+
+# inspect and apply color profile
+gsset list
+gsset current
+gsset focus
+gsset night
+gsset morning
+gsset reading
+gsset neutral
+
+# compatibility aliases
+gsset dawn
+gsset night-owl
+gsset coding
+gsset design
+```
+
+---
+
+## Gamma Profiles
+
+| Preset | Day / Night | Gamma | Typical Use |
+|---|---:|---:|---|
+| `focus` | 5400K / 4100K | 0.90 | coding and IDE work |
+| `night` | 4300K / 2800K | 0.82 | night session, dim room |
+| `morning` | 5000K / 3600K | 0.88 | warm start |
+| `reading` | 4800K / 3400K | 0.86 | docs and writing |
+| `neutral` | 6500K / 5000K | 0.96 | color-sensitive tasks |
+
+---
+
+## Keybinds
 
 | Key | Action |
 |---|---|
 | `Alt + Tab` | Hyprexpo workspace overview |
 | `Alt + Shift + Tab` | Rofi window switcher |
-| `Super + P` | Display settings (nwg-displays) |
+| `Super + P` | Display settings |
 | `Super + Ctrl + D` | Toggle Do Not Disturb |
 | `Ctrl + Shift + S` | Flameshot screenshot |
 | `Super + Shift + F` | Pseudotile toggle |
-| `Super + Shift + V` | Toggle dwindle split direction |
-| `Super + Shift + Enter` | Swap with master window |
+| `Super + Shift + V` | Toggle split direction |
+| `Super + Shift + Enter` | Swap with master |
 
 ---
 
-## gammastep presets
+## Troubleshooting
 
-```fish
-gsset focus      # daytime   — 5200K, γ0.88
-gsset night-owl  # late night — 4500K, γ0.75
-gsset dawn       # morning   — 5000K, γ0.80
-gsset neutral    # design    — 6500K, γ0.95
-```
+If `gsset` updates config but your display looks unchanged:
+
+1. Check current mode:
+   ```fish
+   gsset current
+   ```
+2. Check active shader path:
+   ```fish
+   hyprctl -j getoption decoration:screen_shader
+   ```
+3. If gamma ramps are unsupported on your output, fallback shader mode is expected behavior.
 
 ---
 
-## notes
+## Notes
 
-- This repo only contains **user overrides** — the base Caelestia config lives in `~/.local/share/caelestia/` (do not edit)
-- Hyprexpo is managed by **hyprpm**, not via `plugin =` in config
-- Screen shader uses `#version 320 es` — required for Hyprland screen shaders on NVIDIA
-- After any Hyprland update, run `hyprpm update` to rebuild plugins
-- Caelestia shell restart: `caer` (fish alias → `caelestia shell -k && caelestia shell -d`)
+- This repository tracks user-level overrides, not full upstream Caelestia source.
+- Hyprexpo is managed by `hyprpm`.
+- Shader files use `#version 320 es` for Hyprland compatibility.
+- After Hyprland upgrades, run `hyprpm update`.
 

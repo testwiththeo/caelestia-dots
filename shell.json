@@ -1,16 +1,20 @@
 {
   "general": {
-    "logo": "caelestia"
+    "logo": "caelestia",
+    "idle": {
+      "lockBeforeSleep": false,
+      "timeouts": []
+    }
   },
   "appearance": {
     "rounding": {
-      "scale": 0.8
+      "scale": 1.05
     },
     "spacing": {
-      "scale": 1
+      "scale": 0.9
     },
     "padding": {
-      "scale": 0.7
+      "scale": 0.72
     },
     "font": {
       "family": {
@@ -20,24 +24,24 @@
         "clock": "SF Pro Display"
       },
       "size": {
-        "scale": 0.85
+        "scale": 0.82
       }
     },
     "transparency": {
       "enabled": true,
-      "base": 0.72,
-      "layers": 0.85
+      "base": 0.58,
+      "layers": 0.78
     },
     "anim": {
       "durations": {
-        "scale": 0.9
+        "scale": 0.8
       }
     }
   },
   "bar": {
     "persistent": true,
     "showOnHover": false,
-    "dragThreshold": 20,
+    "dragThreshold": 12,
     "scrollActions": {
       "workspaces": true,
       "volume": true,
@@ -51,26 +55,26 @@
     "workspaces": {
       "shown": 3,
       "activeIndicator": true,
-      "occupiedBg": true,
-      "showWindows": true,
+      "occupiedBg": false,
+      "showWindows": false,
       "showWindowsOnSpecialWorkspaces": false,
-      "activeTrail": false,
+      "activeTrail": true,
       "perMonitorWorkspaces": true,
-      "label": "ε",
-      "occupiedLabel": "λ",
-      "activeLabel": "Ω",
+      "label": "◌",
+      "occupiedLabel": "◎",
+      "activeLabel": "⬤",
       "capitalisation": "preserve",
       "specialWorkspaceIcons": []
     },
     "activeWindow": {
       "inverted": false,
       "maxLines": 1,
-      "showIcon": false,
-      "fontScale": 0.7,
+      "showIcon": true,
+      "fontScale": 0.68,
       "truncate": "end"
     },
     "tray": {
-      "background": false,
+      "background": true,
       "recolour": false,
       "compact": true,
       "iconSubs": []
@@ -86,22 +90,18 @@
       "showLockStatus": true
     },
     "clock": {
-      "showIcon": true
+      "showIcon": false
     },
     "sizes": {
-      "innerWidth": 22,
-      "windowPreviewSize": 400,
-      "trayMenuWidth": 300,
-      "batteryWidth": 240,
-      "networkWidth": 300
+      "innerWidth": 20,
+      "windowPreviewSize": 380,
+      "trayMenuWidth": 280,
+      "batteryWidth": 220,
+      "networkWidth": 280
     },
     "entries": [
       {
         "id": "workspaces",
-        "enabled": true
-      },
-      {
-        "id": "spacer",
         "enabled": true
       },
       {
@@ -113,7 +113,7 @@
         "enabled": true
       },
       {
-        "id": "tray",
+        "id": "statusIcons",
         "enabled": true
       },
       {
@@ -121,7 +121,7 @@
         "enabled": true
       },
       {
-        "id": "statusIcons",
+        "id": "tray",
         "enabled": true
       },
       {
@@ -134,10 +134,10 @@
   "dashboard": {
     "enabled": true,
     "showOnHover": true,
-    "dragThreshold": 50
+    "dragThreshold": 28
   },
   "background": {
-    "enabled": false,
+    "enabled": true,
     "desktopClock": {
       "enabled": false
     },
